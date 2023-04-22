@@ -56,13 +56,12 @@ SELECT
     SUM(freight) as freight
 FROM
     orders
-WHERE(
-    freight > 2750 AND ship_region IS NOT NULL
-)
 GROUP BY
     country
+HAVING
+    SUM(freight) > 2750
 ORDER BY
-    freight DESC;
+    SUM(freight) DESC;
 
 -- 6. страны, в которых зарегистрированы и заказчики (customers) и поставщики (suppliers) и работники (employees).
 
